@@ -13,6 +13,10 @@ if ! [ -e "Rolls.md" ]; then
 	touch "Rolls.md"
 fi
 
+if ! [ -e "GlobalStats.md" ]; then
+	touch "GlobalStats.md"
+fi
+
 
 echo -n "Set a DC: "
 read -r DC
