@@ -17,19 +17,33 @@ if ! [ -e "GlobalStats.md" ]; then
 	touch "GlobalStats.md"
 fi
 
-
-echo -n "Set a DC: "
-read -r DC
-
-echo -n "Set a modifier: "
-read -r mod
+repeat=1
+while(($repeat == 1)); do
+	echo -n "Set a DC: "
+	read -r DC
+	if ! [[ $DC =~ ^[0-9]+$ ]]; then
+       	echo "Input error, please try again."
+	else
+		repeat=0
+	fi
+done
 
 repeat=1
 while(($repeat == 1)); do
+	echo -n "Set a modifier: "
+	read -r mod
+	if ! [[ $mod =~ ^[0-9]+$ ]]; then
+       	echo "Input error, please try again."
+	else
+		repeat=0
+	fi
+done
 
+
+repeat=1
+while(($repeat == 1)); do
 	echo -n "Are you a Specialist? (y/n): "
 	read -r spec
-
 	if [ $spec == y ]; then
         	spec=1
         	repeat=0
@@ -50,8 +64,17 @@ while(($loop == 1)); do
 	fail=$(cat Failures.md)
 	success=$(cat Successes.md)
 
-	echo -n "How many times would you like to roll? "
-	read -r num
+	repeat=1
+	while(($repeat == 1)); do
+		echo -n "How many times would you like to roll? "
+		read -r num
+		if ! [[ $num =~ ^[0-9]+$ ]]; then
+       		echo "Input error, please try again."
+		else
+			repeat=0
+		fi
+	done
+
 
 	for ((i = 0 ; i < num ; i++)); do
 # If they are a Specialist, roll 3d6 keep high 2
