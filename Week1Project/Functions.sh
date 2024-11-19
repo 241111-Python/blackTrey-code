@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 ClearResults()
 {
 
@@ -37,7 +38,7 @@ spec=$5
 # Adds all rolls into a sum
 sum=0
 while IFS= read -r line; do
-	sum=$(($sum+$line))
+	sum=$((sum+line))
 done < Rolls.md
 
 count=$((fail+success))

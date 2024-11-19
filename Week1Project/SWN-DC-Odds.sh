@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 source Functions.sh
 
 #Creates data storage files if not present
